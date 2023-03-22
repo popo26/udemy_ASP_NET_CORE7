@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "d8MwQwyuJtIwDS+i8GM9T4jq2y9w+cL2xHCg0iEpC0c=",
+  "Source": "StaticFileExample",
+  "BasePath": "_content/StaticFileExample",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "StaticFileExample\\wwwroot",
+      "Source": "StaticFileExample",
+      "ContentRoot": "C:\\Users\\Ai\\Documents\\udemy_asp_net_core\\StaticFileExample\\StaticFileExample\\wwwroot\\",
+      "BasePath": "_content/StaticFileExample",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

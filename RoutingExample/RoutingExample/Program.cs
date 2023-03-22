@@ -108,7 +108,12 @@ app.UseEndpoints(endpoints => {
         {
             await context.Response.WriteAsync($"{month} is not allowed for sales report");
         }
-        
+    });
+
+    //sales-report/2024/jan - this has more presedent than the one above due to more literal path
+    endpoints.Map("sales-report/2024/jan", async context =>
+    {
+        await context.Response.WriteAsync("Sales report exclusively for 2024 - jan");
     });
 });
 
