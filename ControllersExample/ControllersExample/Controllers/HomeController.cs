@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Net.Mime;
+using ControllersExample.Models;
 
 namespace ControllersExample.Controllers
 {
@@ -25,10 +25,21 @@ namespace ControllersExample.Controllers
           
         }
 
-        [Route("about")] 
-        public string About()
+        [Route("person")] 
+        public JsonResult Person()
         {
-            return "Hello from About";
+           
+            Person person = new Person()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "James",
+                LastName = "Smith",
+                Age = 25
+            };
+                return Json(person);//more shortcut way 
+                //return new JsonResult(person);
+                //above is better than directly returnning json below
+                //return "{ \"key\":\"value\" }";           
         }
 
         [Route("contact-us/{mobile:regex(^\\d{{10}}$)}")] //since it is inside {} you need to use // and {{}} inside regex
