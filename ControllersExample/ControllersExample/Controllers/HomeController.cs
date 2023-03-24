@@ -63,7 +63,9 @@ namespace ControllersExample.Controllers
         }
 
         [Route("file-download3")]
-        public FileContentResult FileDownload3() //when returning in bytes.Not good example with this file. Good when you are encrypting.
+        //IActionResult is parent of all ContentReuslts -json, fileresult, etc
+        public IActionResult FileDownload3()
+        //public FileContentResult FileDownload3() //when returning in bytes.Not good example with this file. Good when you are encrypting.
         {
             byte[] bytes = System.IO.File.ReadAllBytes(@"C:\Users\Ai\Desktop\Support Letter For Japan Kauri Education Trust.pdf");
             //return new FileContentResult(bytes, "application/pdf");
