@@ -24,3 +24,4 @@ C:\Users\Ai\Documents\udemy_asp_net_core\ControllersExample\ControllersExample\o
 C:\Users\Ai\Documents\udemy_asp_net_core\ControllersExample\ControllersExample\obj\Debug\net6.0\ControllersExample.pdb
 C:\Users\Ai\Documents\udemy_asp_net_core\ControllersExample\ControllersExample\obj\Debug\net6.0\ControllersExample.genruntimeconfig.cache
 C:\Users\Ai\Documents\udemy_asp_net_core\ControllersExample\ControllersExample\obj\Debug\net6.0\ref\ControllersExample.dll
+C:\Users\Ai\Documents\udemy_asp_net_core\ControllersExample\ControllersExample\bin\Debug\net6.0\ControllersExample.staticwebassets.runtime.json

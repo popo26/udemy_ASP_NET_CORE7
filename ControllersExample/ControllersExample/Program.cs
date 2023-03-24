@@ -8,6 +8,8 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 // this include UseRouting/UseEndpoints/MapControllers all in one.
 app.MapControllers();
 

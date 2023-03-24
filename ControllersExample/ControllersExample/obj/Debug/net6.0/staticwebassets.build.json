@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "nJr+0Dau8qncgColkVxZTeNLsuQBFN3zihOzO2IwmRU=",
+  "Hash": "sxf8So6TX3EJWDdlZic5cMIhNdtImkpi1P34oknxJww=",
   "Source": "ControllersExample",
   "BasePath": "_content/ControllersExample",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "ControllersExample\\wwwroot",
+      "Source": "ControllersExample",
+      "ContentRoot": "C:\\Users\\Ai\\Documents\\udemy_asp_net_core\\ControllersExample\\ControllersExample\\wwwroot\\",
+      "BasePath": "_content/ControllersExample",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Ai\\Documents\\udemy_asp_net_core\\ControllersExample\\ControllersExample\\wwwroot\\sample.pdf",
+      "SourceId": "ControllersExample",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ai\\Documents\\udemy_asp_net_core\\ControllersExample\\ControllersExample\\wwwroot\\",
+      "BasePath": "_content/ControllersExample",
+      "RelativePath": "sample.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\sample.pdf"
+    }
+  ]
 }

@@ -47,5 +47,28 @@ namespace ControllersExample.Controllers
         {
             return "Hello from Comtact";
         }
+
+        [Route("file-download")]
+        public VirtualFileResult FileDownload() //when file is inside wwwroot
+        {
+            //return new VirtualFileResult("/sample.pdf", "application/pdf");
+            return File("/sample.pdf", "application/pdf"); //shortcut way
+        }
+
+        [Route("file-download2")]
+        public PhysicalFileResult FileDownload2()//when file is outside wwwroot
+        {
+            //return new PhysicalFileResult(@"C:\Users\Ai\Desktop\Support Letter For Japan Kauri Education Trust.pdf", "application/pdf");
+            return PhysicalFile(@"C:\Users\Ai\Desktop\Support Letter For Japan Kauri Education Trust.pdf", "application/pdf");//shortcut way
+        }
+
+        [Route("file-download3")]
+        public FileContentResult FileDownload3() //when returning in bytes.Not good example with this file. Good when you are encrypting.
+        {
+            byte[] bytes = System.IO.File.ReadAllBytes(@"C:\Users\Ai\Desktop\Support Letter For Japan Kauri Education Trust.pdf");
+            //return new FileContentResult(bytes, "application/pdf");
+            return File(bytes, "application/pdf"); //shortcut way
+        }
+
     }
 }
