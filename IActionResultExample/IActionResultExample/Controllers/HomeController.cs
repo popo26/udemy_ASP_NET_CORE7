@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace IActionResultExample.Controllers
 {
@@ -57,8 +58,33 @@ namespace IActionResultExample.Controllers
 
             }
 
-            //return new RedirectToActionResult("Books", "Store", new { }); //302 - Found
-            return new RedirectToActionResult("Books", "Store", new { }, true); //301 - Moved Permanently
+            
+            //302 - Found - RedirectToActionResult
+            //return new RedirectToActionResult("Books", "Store", new {new { id=BookId } }); //302 - Found
+            //return RedirectToAction("Books", "Store", new { id=BookId });//short cut way - method for 302
+
+            //301-Moved Permanently - RedirectToActionResult
+            //return new RedirectToActionResult("Books", "Store", new { }, permanent:true); //301 - Moved Permanently
+            //return RedirectToActionPermanent("Books", "Store", new { id = BookId });//short cut way - method for 301
+
+            //302 - Found - LocalRedirectResult
+            //return new LocalRedirectResult($"store/books/{BookId}"); //when you want to redirect to URL directly.(302-found)
+            //return LocalRedirect($"store/books/{BookId}");
+
+            //301 - Moved Permanently - LocalRedirectResult
+            //return new LocalRedirectResult($"store/books/{BookId}", true); //when you want to redirect to URL directly.(301-moved permanently)
+            //return LocalRedirectPermanent($"store/books/{BookId}");
+
+            //RedirectResult
+            //return Redirect($"store/books/{BookId}");//302 - Found
+            return RedirectPermanent($"store/books/{BookId}");//301 - Moved Permanently
+
+            //When you want to use Action name and Controller name, RedirectToActionResult is good. (You can use RedirectResult too)
+            //When you want ot use specific URL, LocalRedirectResult is good.
+            
+
         }
     }
+
+    
 }
