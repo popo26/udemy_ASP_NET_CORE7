@@ -4,7 +4,8 @@ namespace IActionResultExample.Controllers
 {
     public class HomeController : Controller
     {
-        [Route("book")]
+        [Route("bookstore")]
+        //Url: /bookstore?bookid=5&isloggedin=true
         public IActionResult Index() //by using IActionResult, since it is parent of ContentResult, FileResult, etc, it accomodate all
         {
             //Book id should be supplied
@@ -55,8 +56,9 @@ namespace IActionResultExample.Controllers
                 return StatusCode(401); //to use StatusCode as result.
 
             }
-   
-            return File("/sample.pdf", "application/pdf");
+
+            //return new RedirectToActionResult("Books", "Store", new { }); //302 - Found
+            return new RedirectToActionResult("Books", "Store", new { }, true); //301 - Moved Permanently
         }
     }
 }
