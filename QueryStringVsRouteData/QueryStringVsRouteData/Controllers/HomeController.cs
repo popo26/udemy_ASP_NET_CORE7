@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using QueryStringVsRouteData.Models;
 
 namespace QueryStringVsRouteData.Controllers
 {
     public class HomeController : Controller
     {
         [Route("bookstore/{bookid?}/{isloggedin?}")]//Route data has more priority than Query String
-        //Url: /bookstore?bookid=5&isloggedin=true
-        public IActionResult Index([FromRoute]int? bookid,[FromQuery] bool? isloggedin) //[FromQuery] to only fetch value from Query Data, [FromRoute] to only fetch value from Route Data
+                                                    //Url: /bookstore?bookid=5&isloggedin=true
+
+        //When you send request e.g., "/bookstore/1/false?bookid=10&isloggedin=true&author=harsha"
+        public IActionResult Index([FromQuery]int? bookid,[FromQuery] bool? isloggedin, Book book) //[FromQuery] to only fetch value from Query Data, [FromRoute] to only fetch value from Route Data
         {
             //Book id should be supplied
             if (bookid.HasValue == false)
@@ -35,7 +38,7 @@ namespace QueryStringVsRouteData.Controllers
                 return StatusCode(401); //to use StatusCode as result.
 
             }
-            return Content($"Book id: {bookid}", "text/plain");
+            return Content($"Book id: {bookid}, Book:{book}","text/plain");
         }
     }
 
