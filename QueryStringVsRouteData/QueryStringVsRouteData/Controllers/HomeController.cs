@@ -5,7 +5,7 @@ namespace QueryStringVsRouteData.Controllers
 {
     public class HomeController : Controller
     {
-        [Route("bookstore/{bookid?}/{isloggedin?}")]//Quey String more priority over Rute Data
+        [Route("bookstore/{bookid?}/{isloggedin?}")]//Route data has more priority than Query String
         //Url: /bookstore?bookid=5&isloggedin=true
         public IActionResult Index(int? bookid, bool? isloggedin) //by using IActionResult, since it is parent of ContentResult, FileResult, etc, it accomodate all
         {
