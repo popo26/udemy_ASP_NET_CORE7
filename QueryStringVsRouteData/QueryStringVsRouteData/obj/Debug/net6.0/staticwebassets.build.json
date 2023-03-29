@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "PWm78FmGA1EkEYCiMKDjoTXjtz4D3NTR9h4/7HZqgTQ=",
+  "Source": "QueryStringVsRouteData",
+  "BasePath": "_content/QueryStringVsRouteData",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "QueryStringVsRouteData\\wwwroot",
+      "Source": "QueryStringVsRouteData",
+      "ContentRoot": "C:\\Users\\Ai\\Documents\\udemy_asp_net_core\\QueryStringVsRouteData\\QueryStringVsRouteData\\wwwroot\\",
+      "BasePath": "_content/QueryStringVsRouteData",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Ai\\Documents\\udemy_asp_net_core\\QueryStringVsRouteData\\QueryStringVsRouteData\\wwwroot\\sample.pdf",
+      "SourceId": "QueryStringVsRouteData",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ai\\Documents\\udemy_asp_net_core\\QueryStringVsRouteData\\QueryStringVsRouteData\\wwwroot\\",
+      "BasePath": "_content/QueryStringVsRouteData",
+      "RelativePath": "sample.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\sample.pdf"
+    }
+  ]
+}
