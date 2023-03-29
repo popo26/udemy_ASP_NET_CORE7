@@ -7,7 +7,7 @@ namespace QueryStringVsRouteData.Controllers
     {
         [Route("bookstore/{bookid?}/{isloggedin?}")]//Route data has more priority than Query String
         //Url: /bookstore?bookid=5&isloggedin=true
-        public IActionResult Index(int? bookid, bool? isloggedin) //by using IActionResult, since it is parent of ContentResult, FileResult, etc, it accomodate all
+        public IActionResult Index([FromRoute]int? bookid,[FromQuery] bool? isloggedin) //[FromQuery] to only fetch value from Query Data, [FromRoute] to only fetch value from Route Data
         {
             //Book id should be supplied
             if (bookid.HasValue == false)
@@ -23,14 +23,8 @@ namespace QueryStringVsRouteData.Controllers
             }
 
             //Book id should be between 1 to 1000
-            
-            if (bookid <= 0)
-            {
-               return BadRequest("Book id can't be less than or equal to zero");
-            }
             if (bookid > 1000)
             {
-
                 return NotFound("Book id can't be greater than 1000.");
             }
 
