@@ -4,12 +4,12 @@ using ModelValidationsExample.CustomValidators;
 
 namespace ModelValidationsExample.Models
 {
-    public class Person
+    public class Person: IValidatableObject
     {
         [Required(ErrorMessage = "{0} can't be empty or null")]//0 indicate PersonName. Use [Display] when you want to have a different display name.
         [Display(Name = "Person Name")]
         [StringLength(40, MinimumLength =3, ErrorMessage = "{0} should be between {2} and {1} characters long.")]
-        [RegularExpression("^[A-Za-z .]", ErrorMessage ="{0} should contain only alphabets, space and dot(.).")]
+        [RegularExpression("^[A-Za-z .]*", ErrorMessage ="{0} should contain only alphabets, space and dot(.).")]
         public string? PersonName { get; set; }
 
         [EmailAddress(ErrorMessage = "Invalid {0} format.")]
@@ -41,6 +41,8 @@ namespace ModelValidationsExample.Models
         [DateRangeValidator("FromDate", ErrorMessage = "'From Date should e older than or equal to ''To date'")]
         public DateTime? ToDate { get; set; }
 
+        public int? Age { get; set; }
+
         public override string ToString()
         {
             return $"Person object - Person name:" +
@@ -49,5 +51,15 @@ namespace ModelValidationsExample.Models
                 $"Price: {Price}";
         }
 
+
+        //Below Validate method from Ivalidtable object only execute after model binding not before
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (DateOfBirth.HasValue == false && Age.HasValue == false)
+            {
+                yield return new ValidationResult("Either of Date of Birth day or Age must be supplied", 
+                    new[] { nameof(Age) }); //"yield" allows to return multiple validations if you have more.
+            }
+        }
     }
 }
