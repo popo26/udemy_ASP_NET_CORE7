@@ -36,6 +36,11 @@ namespace ModelValidationsExample.Models
         [MinimumYearValidator(2005)] // in c#, the word"Attribute" will be ignored, for the attribute class names.
         public DateTime? DateOfBirth { get; set; }
 
+        public DateTime? FromDate { get; set; }
+
+        [DateRangeValidator("FromDate", ErrorMessage = "'From Date should e older than or equal to ''To date'")]
+        public DateTime? ToDate { get; set; }
+
         public override string ToString()
         {
             return $"Person object - Person name:" +
