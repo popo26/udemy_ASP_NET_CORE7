@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 using ModelValidationsExample.CustomValidators;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ModelValidationsExample.Models
 {
@@ -34,6 +35,7 @@ namespace ModelValidationsExample.Models
 
         //[MinimumYearValidator(2005,ErrorMessage = "Date of Birth should not be newer than Jan 01, {0}.")] // custom validator
         [MinimumYearValidator(2005)] // in c#, the word"Attribute" will be ignored, for the attribute class names.
+        [BindNever] //To not Bind. To avoid overposting.
         public DateTime? DateOfBirth { get; set; }
 
         public DateTime? FromDate { get; set; }
