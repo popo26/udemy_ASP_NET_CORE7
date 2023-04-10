@@ -11,7 +11,7 @@ namespace ModelValidationsExample.Controllers
         //    nameof(Person.Email), nameof(Person.Password), 
         //    nameof(Person.ConfirmPassword))]Person person) //With [Bind] only specified values are posted
 
-        public IActionResult Index(Person person)
+        public IActionResult Index([FromBody]Person person)//[FromBody] allows JSON, XML input into Model objects
 
 
         //With Linq
