@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ModelValidationsExample.CustomModelBinders;
 using ModelValidationsExample.Models;
 
 namespace ModelValidationsExample.Controllers
@@ -11,7 +12,7 @@ namespace ModelValidationsExample.Controllers
         //    nameof(Person.Email), nameof(Person.Password), 
         //    nameof(Person.ConfirmPassword))]Person person) //With [Bind] only specified values are posted
 
-        public IActionResult Index([FromBody]Person person)//[FromBody] allows JSON, XML input into Model objects
+        public IActionResult Index([FromBody][ModelBinder(BinderType = typeof(PersonModelBinder))]Person person)//[FromBody] allows JSON, XML input into Model objects
 
 
         //With Linq
