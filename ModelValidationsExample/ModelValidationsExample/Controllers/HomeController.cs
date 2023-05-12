@@ -12,7 +12,8 @@ namespace ModelValidationsExample.Controllers
         //    nameof(Person.Email), nameof(Person.Password), 
         //    nameof(Person.ConfirmPassword))]Person person) //With [Bind] only specified values are posted
 
-        public IActionResult Index([FromBody][ModelBinder(BinderType = typeof(PersonModelBinder))]Person person)//[FromBody] allows JSON, XML input into Model objects
+        //[ModelBinder(BinderType = typeof(PersonModelBinder))] removed from Line16 after PersonbinderProvider is added.
+        public IActionResult Index(Person person, [FromHeader(Name = "User-Agent")]string UserAgent)//[FromBody] allows JSON, XML input into Model objects
 
 
         //With Linq
@@ -23,7 +24,7 @@ namespace ModelValidationsExample.Controllers
                 
                 return BadRequest(errors);
             }
-            return Content($"{person}");
+            return Content($"{person}, {UserAgent}");
         }
 
 //Normal
