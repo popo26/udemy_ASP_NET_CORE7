@@ -1,8 +1,16 @@
 ﻿@using ViewsExample.Models
 @{
 	string appTitle = "Asp.Net Core Demo App";
-	Person person = new Person() { Name = "John", DateOfBirth = null };
+	//Person person = new Person() { Name = "John", DateOfBirth = null, PersonGender = Gender.Male };
 	//Person person = new Person() { Name = "John", DateOfBirth = Convert.ToDateTime("2004-07-01") };
+
+	List<Person> people = new List<Person>()
+	{
+		new Person(){ Name = "John", DateOfBirth=DateTime.Parse("2000-05-06"), PersonGender = Gender.Male},
+		new Person(){ Name = "Linda", DateOfBirth=DateTime.Parse("2005-01-09"), PersonGender = Gender.Female},
+		new Person(){ Name = "Susan", DateOfBirth=DateTime.Parse("2007-05-30"), PersonGender = Gender.Other},
+
+	};
 }
 
 
@@ -14,7 +22,24 @@
 	</head>
 	<body>
 		<h1>Welcome</h1>
-		<h2>Hello @person.Name</h2>
+
+		@foreach (var person in people)
+	    {
+			<div>
+				@person.Name
+				<span>,</span>
+				<span>@person.PersonGender</span>
+				@if (person.DateOfBirth != null)
+				{
+				<span>@person.DateOfBirth.Value.ToString("MM/dd/yyyy")</span>
+				}
+			</div>
+
+        }
+
+
+
+		@*<h2>Hello @person.Name</h2>
 		@if (person.DateOfBirth.HasValue)
 	{
 		double age = Math.Round((DateTime.Now - person.DateOfBirth).Value.TotalDays / 365.25);
@@ -24,6 +49,22 @@
 	{
 	<h3>Date of birth is unknown</h3>
 	}
+
+	@switch(person.PersonGender)
+	{
+		case Gender.Male:
+			<p>November 19 is Internaltional Men's Day'</p>
+			;
+			break;
+		case Gender.Female:
+			<p>March 8 is International Womens Day</p>
+			;
+			break;
+		case Gender.Other:
+			<p>March 31 is International Transgender's day'</p>
+			;
+			break;
+	}*@
 	
 	</body>
 </html>
