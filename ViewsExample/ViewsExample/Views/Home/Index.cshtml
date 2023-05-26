@@ -1,4 +1,5 @@
 ﻿@using ViewsExample.Models
+@model List<Person>
 
 @*CONTROLLER GIVES & VIEW RECEIVES*@
 @*If you want to use ViewData - type cast is must e.g.List<Person>? people = (List<Person>?)ViewData["people"];*@
@@ -21,7 +22,7 @@
 			//List<Person>? people = (List<Person>?)ViewData["people"];
 		}
 
-		@foreach (Person person in ViewBag.people)
+		@foreach (Person person in Model)
 		{
 			<div class="box float-left w-50">
 				<h3>@person.Name</h3>

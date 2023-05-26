@@ -19,13 +19,10 @@ namespace ViewsExample.Controllers
 		new Person(){ Name = "Susan", DateOfBirth=null, PersonGender = Gender.Other},
 	};
 
-            //ViewData["people"] = people;
-            ViewBag.people = people;
+          
 
-			return View(); //Views/Home/Index.cshtml
-            //return View("abc"); //abc.cshtml
-            //same as above.
-            //return new ViewResult() { ViewName = "abc" };
+			return View("Index",people); //Views/Home/Index.cshtml
+          
         }
     }
 }
