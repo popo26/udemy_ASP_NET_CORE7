@@ -1,12 +1,14 @@
 ﻿@using ViewsExample.Models
 
 @*CONTROLLER GIVES & VIEW RECEIVES*@
+@*If you want to use ViewData - type cast is must e.g.List<Person>? people = (List<Person>?)ViewData["people"];*@
+@*If you use ViewBag, you can access predefined property*@
 
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>@ViewData["appTitle"]</title>
+		<title>@ViewBag.apptitle</title>
 		<meta charset="utf-8" />
 		<link href="~/StyleSheet.css" rel="stylesheet"/>
 	</head>
@@ -16,10 +18,10 @@
 		@*@Html.Raw(alertMessage) *@
 		<h1>Welcome</h1>
 		@{
-			List<Person>? people = (List<Person>?)ViewData["people"];
+			//List<Person>? people = (List<Person>?)ViewData["people"];
 		}
 
-		@foreach (Person person in people)
+		@foreach (Person person in ViewBag.people)
 		{
 			<div class="box float-left w-50">
 				<h3>@person.Name</h3>
@@ -31,7 +33,7 @@
 						</tr>
 						<tr>
 							<td>Date of Birth</td>
-							<td>@person.DateOfBirth.Value.ToString("MM/dd/yyyy")</td>
+							<td>@person.DateOfBirth?.ToString("MM/dd/yyyy")</td>
 						</tr>
 					</tbody>
 				</table>

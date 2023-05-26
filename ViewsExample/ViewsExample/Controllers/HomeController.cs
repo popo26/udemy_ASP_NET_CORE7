@@ -16,10 +16,11 @@ namespace ViewsExample.Controllers
 	{
 		new Person(){ Name = "John", DateOfBirth=DateTime.Parse("2000-05-06"), PersonGender = Gender.Male},
 		new Person(){ Name = "Linda", DateOfBirth=DateTime.Parse("2005-01-09"), PersonGender = Gender.Female},
-		new Person(){ Name = "Susan", DateOfBirth=DateTime.Parse("2007-05-30"), PersonGender = Gender.Other},
+		new Person(){ Name = "Susan", DateOfBirth=null, PersonGender = Gender.Other},
 	};
 
-            ViewData["people"] = people;
+            //ViewData["people"] = people;
+            ViewBag.people = people;
 
 			return View(); //Views/Home/Index.cshtml
             //return View("abc"); //abc.cshtml
