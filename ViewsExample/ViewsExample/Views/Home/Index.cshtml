@@ -2,57 +2,43 @@
 
 @*CONTROLLER GIVES & VIEW RECEIVES*@
 
-@*@{
-	//method
-	double? GetAge(DateTime? DateOfBirth)
-	{
-		if (DateOfBirth is not null)
-		{
-			return Math.Round((DateTime.Now - DateOfBirth.Value).TotalDays / 365.25);
-		}
-		else
-		{
-			return null;	
-		}
-	}
-
-	////field
-	//int x = 10;
-
-	////property
-	//string Name { get; set; } = "Property created in the local method";
-
-	//string alertMessage = $"<script>alert('{people.Count} people found')</script>";
-}*@
-
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>@ViewData["appTitle"]</title>
 		<meta charset="utf-8" />
+		<link href="~/StyleSheet.css" rel="stylesheet"/>
 	</head>
 	<body>
-@*	if you are not taking the content from user, ok to use. Otherwise not safe.*@
+		<div class="page-content">
+		@*	if you are not taking the content from user, ok to use. Otherwise not safe.*@
 		@*@Html.Raw(alertMessage) *@
 		<h1>Welcome</h1>
 		@{
-		List<Person>? people = (List<Person>?)ViewData["people"];
+			List<Person>? people = (List<Person>?)ViewData["people"];
 		}
 
-	@foreach(Person person in people)
+		@foreach (Person person in people)
 		{
-			<div>
-				@person.Name
-				<span>,</span>
-				<span>@person.PersonGender</span>
-				@if (person.DateOfBirth != null)
-				{
-				<span>@person.DateOfBirth.Value.ToString("MM/dd/yyyy")</span>
-			}
+			<div class="box float-left w-50">
+				<h3>@person.Name</h3>
+				<table class="table w-100">
+					<tbody>
+						<tr>
+							<td>Gender</td>
+							<td>@person.PersonGender</td>
+						</tr>
+						<tr>
+							<td>Date of Birth</td>
+							<td>@person.DateOfBirth.Value.ToString("MM/dd/yyyy")</td>
+						</tr>
+					</tbody>
+				</table>
+			
 			</div>
-
         }
+	</div>
 
 
 
