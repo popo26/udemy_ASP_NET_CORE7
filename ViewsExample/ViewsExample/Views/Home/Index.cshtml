@@ -1,30 +1,47 @@
 ﻿@using ViewsExample.Models
-@{
-	string appTitle = "Asp.Net Core Demo App";
-	//Person person = new Person() { Name = "John", DateOfBirth = null, PersonGender = Gender.Male };
-	//Person person = new Person() { Name = "John", DateOfBirth = Convert.ToDateTime("2004-07-01") };
 
-	List<Person> people = new List<Person>()
+@*CONTROLLER GIVES & VIEW RECEIVES*@
+
+@*@{
+	//method
+	double? GetAge(DateTime? DateOfBirth)
 	{
-		new Person(){ Name = "John", DateOfBirth=DateTime.Parse("2000-05-06"), PersonGender = Gender.Male},
-		new Person(){ Name = "Linda", DateOfBirth=DateTime.Parse("2005-01-09"), PersonGender = Gender.Female},
-		new Person(){ Name = "Susan", DateOfBirth=DateTime.Parse("2007-05-30"), PersonGender = Gender.Other},
+		if (DateOfBirth is not null)
+		{
+			return Math.Round((DateTime.Now - DateOfBirth.Value).TotalDays / 365.25);
+		}
+		else
+		{
+			return null;	
+		}
+	}
 
-	};
-}
+	////field
+	//int x = 10;
+
+	////property
+	//string Name { get; set; } = "Property created in the local method";
+
+	//string alertMessage = $"<script>alert('{people.Count} people found')</script>";
+}*@
 
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>@appTitle</title>
+		<title>@ViewData["appTitle"]</title>
 		<meta charset="utf-8" />
 	</head>
 	<body>
+@*	if you are not taking the content from user, ok to use. Otherwise not safe.*@
+		@*@Html.Raw(alertMessage) *@
 		<h1>Welcome</h1>
+		@{
+		List<Person>? people = (List<Person>?)ViewData["people"];
+		}
 
-		@foreach (var person in people)
-	    {
+	@foreach(Person person in people)
+		{
 			<div>
 				@person.Name
 				<span>,</span>
@@ -32,7 +49,7 @@
 				@if (person.DateOfBirth != null)
 				{
 				<span>@person.DateOfBirth.Value.ToString("MM/dd/yyyy")</span>
-				}
+			}
 			</div>
 
         }
