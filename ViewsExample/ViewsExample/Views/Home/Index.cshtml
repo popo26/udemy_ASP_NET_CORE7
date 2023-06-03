@@ -17,7 +17,7 @@
 		<div class="page-content">
 		@*	if you are not taking the content from user, ok to use. Otherwise not safe.*@
 		@*@Html.Raw(alertMessage) *@
-		<h1>Welcome</h1>
+		<h1>Persons</h1>
 		@{
 			//List<Person>? people = (List<Person>?)ViewData["people"];
 		}
@@ -38,13 +38,18 @@
 						</tr>
 					</tbody>
 				</table>
-				<a href="/person-details/@person.Name">Details</a>
+				<div>
+					<a href="/person-details/@person.Name">Details</a>
+				</div>
+			
 			
 			</div>
         }
 	</div>
 
-
+	<div>
+		<a href="/person-with-product">Person with Product</a>
+	</div>
 
 		@*<h2>Hello @person.Name</h2>
 		@if (person.DateOfBirth.HasValue)
