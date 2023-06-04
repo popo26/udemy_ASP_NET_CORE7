@@ -52,7 +52,17 @@ namespace ViewsExample.Controllers
             PersonAndProductWrapperModel personAndProductWrapperModel = new PersonAndProductWrapperModel() { PersonData = person, ProductData = product };
             return View(personAndProductWrapperModel );
         }
-    }
+
+		
+			[Route("products-all")]
+			public IActionResult All()
+			{
+				return View();
+				//Views/Home/All.cshtml
+				//Views/Shared/All.cshtml
+			}
+		
+	}
 
   
 }
