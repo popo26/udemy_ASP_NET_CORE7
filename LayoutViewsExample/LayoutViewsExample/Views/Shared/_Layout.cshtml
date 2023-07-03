@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ASP.NET Core Demo App - Layout View</title>
+    <link href="~/StyleSheet.css" rel="stylesheet"></link>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="navbar-brand">AspNet Core App</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about-company">About</a></li>
+                <li><a href="/contact-support">Contact</a></li>
+                <li><a href="/products">All Products</a></li>
+                <li><a href="/search-products">Search Products</a></li>
+                <li><a href="/order-product">Order Product</a></li>
+            </ul>
+        </div>
+        <div class="page-content">
+            @RenderBody()
+        </div>
+    </div>
+    <div>
+       
+    </div>
+</body>
+</html>
