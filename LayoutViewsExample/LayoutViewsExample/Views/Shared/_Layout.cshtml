@@ -1,9 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>ASP.NET Core Demo App - Layout View</title>
+    <title>@ViewData["Title"]</title>
     <link href="~/StyleSheet.css" rel="stylesheet"></link>
 </head>
 <body>
@@ -22,9 +26,13 @@
         <div class="page-content">
             @RenderBody()
         </div>
+        <div class="footer-content">
+            @RenderSection("footer_section", false)
+        </div>
     </div>
     <div>
        
     </div>
+
 </body>
 </html>
